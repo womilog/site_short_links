@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" class="form-section">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Создать ссылку</button>
+</form>
+
+{% for link in links %}
+<p>Ссылка - <a href="{{ link.full_url }}">{{ link.short_url }}</a></p>
+{% endfor %}
+{% endblock %}
